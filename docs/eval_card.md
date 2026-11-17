@@ -21,7 +21,7 @@ Gate `fixed`: pass_rate Δ +0.014, CI 95% [0.000, 0.043], exit 0. Gate `seeded_r
 
 - **Judge:** tone κ=0.757, precision=0.857, recall=0.800, đạt ngưỡng trên replay; helpful κ=0.375, precision=1.000, recall=0.300, không đạt. Xem `judge_audit.md`.
 - **Trace case:** `trace_case.md`, `seeded_regression C-002@11`, event 3 `model_override`; regression test `tests/test_lab9_trace_case.py`.
-- **Gate owner / phạm vi pilot:** chưa được xác nhận; cần nhóm điền trước khi áp dụng thực tế.
+- **Gate owner:** Phạm Văn Nam (2A202603681), phụ trách kiểm tra và xử lý kết quả gate trong phạm vi bài lab. **Phạm vi pilot thực tế:** chưa được xác nhận.
 - **Giới hạn:** MockLLM và 14 item không đại diện người dùng thật; judge chỉ được đo trên CSV replay công khai. Grader FM-08 hiện chỉ so sánh khi trace chứa reply có số tiền theo định dạng được nhận diện; `swarm` không có reply event nên 1.0 không chứng minh câu trả lời đúng. Cần đánh giá thêm độ bao phủ và định dạng số tiền.
 - **Phiên bản mới:** khi thay đổi tập item hoặc nhãn, tăng phiên bản eval set và tạo lại baseline.
 

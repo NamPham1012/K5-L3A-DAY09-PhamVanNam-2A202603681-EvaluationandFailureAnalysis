@@ -46,7 +46,7 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 ## 5. Cổng release
 - Lệnh: `python -m lab9.gate --pr reports/eval_<shape>.json --baseline reports/baseline_v1.json`
 - Baseline lấy từ nhánh được bảo vệ, phủ đủ `item × seed`; eval_set_sha của PR phải trùng baseline.
-- Gate exit 1 → **không merge**. Người xử lý và người duyệt ngoại lệ: chưa được nhóm xác nhận; cần ghi vai trò, lý do và quyết định vào PR.
+- Gate exit 1 → **không merge**. Trong phạm vi bài lab, người kiểm tra và xử lý kết quả gate: Phạm Văn Nam (2A202603681). Người có thẩm quyền duyệt ngoại lệ cho triển khai thực tế chưa được xác định; cần ghi lý do và quyết định vào PR.
 
 ## 6. Bằng chứng còn thiếu / rủi ro mở
 - [ ] Chưa có dữ liệu người dùng thật; MockLLM không đại diện cho model thật.
@@ -61,5 +61,5 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 ## Phê duyệt
 | Vai trò | Tên | Ngày |
 |---|---|---|
-| Product | | |
-| Eval owner (giữ gate) | | |
+| Product | Chưa xác định | Chưa phê duyệt |
+| Eval owner (giữ gate, trong phạm vi bài lab) | Phạm Văn Nam — 2A202603681 | Chưa ghi nhận phê duyệt chính thức |
