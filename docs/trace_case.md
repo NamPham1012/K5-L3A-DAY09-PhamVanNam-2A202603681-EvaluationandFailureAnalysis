@@ -12,16 +12,16 @@ Lệnh in ra ba phần: các event trong trace (`reply`, `decision`, `model_over
 
 ## Mẫu điền (mỗi nhóm 1 case, lấy từ trial đang fail trong report)
 
-| Trường | Nội dung |
-|---|---|
-| Trial | `<shape> <claim>@<seed>`, run ID trong report |
-| Triệu chứng | Grader nào fail; reply nói gì so với ledger ghi gì |
-| Bước sai đầu tiên | Số thứ tự event + kind + trích payload (≤1 dòng) |
-| Vì sao là bước *đầu tiên* | Các bước trước đó đúng ra sao (dẫn số event) |
-| Failure mode | Mã FM-xx trong `docs/failure_taxonomy.md` |
-| Đối chứng | Cùng claim@seed trên shape `fixed`: bước đó khác thế nào |
-| Regression test | Tên test + grader/assert nào bắt được; đã thấy fail trên variant lỗi và pass trên `fixed` chưa |
-| Chưa chắc chắn | Điều trace không chứng minh được |
+| Trường                    | Nội dung                                                                                       |
+| ------------------------- | ---------------------------------------------------------------------------------------------- |
+| Trial                     | `seeded_regression C-002@11`; run ID `E-seeded_regression-20261117-df81` trong `reports/eval_seeded_regression.json` |
+| Triệu chứng               | Grader Lab 8 báo `status resolved != denied`; ledger hoàn 20.000đ thay vì 0đ                   |
+| Bước sai đầu tiên         | Event 3, `model_override`: `{"delay_days": 5}`                                                 |
+| Vì sao là bước *đầu tiên* | Theo mã variant, agent dùng số ngày từ ticket ghi đè số ngày DB trước khi tính khoản hoàn      |
+| Failure mode              | FM-03 — ticket\_trust                                                                          |
+| Đối chứng                 | `fixed C-002@11`: quote 0đ, ledger 0đ, trạng thái `denied`                                     |
+| Regression test           | `tests/test_lab9_trace_case.py::test_c002_ticket_override_regression`: xác nhận variant lỗi có `model_override`, ledger 20.000đ và Lab 8 FAIL; `fixed` không override, ledger 0đ và Lab 8 PASS. Test chạy thành công: 1 passed. |
+| Chưa chắc chắn            | Output trace đang bị cắt ngắn nên chưa thấy đầy đủ giá trị ngày trong DB                       |
 
 ## Quy tắc
 
