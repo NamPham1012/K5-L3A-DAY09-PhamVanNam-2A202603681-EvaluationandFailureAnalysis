@@ -24,6 +24,7 @@
 | db_fact_kept | năng lực (mức bước) | ≥ 0.95 | không | 0.9857 |
 | pass_5, cost_per_success | theo dõi | ≥ 0.80; tăng chi phí tối đa 0.10 | không | 0.9286; 49.567 |
 | reply_amount_matches_ledger (FM-08) | năng lực | ≥ 0.95 | có | 1.0; xem giới hạn độ bao phủ bên dưới |
+| proposal_amount_correct | theo dõi | ≥ 0.95 | không | 0.9857 |
 
 Các giá trị baseline lấy từ report `E-swarm-20261117-df81`, `reports/baseline_v1.json`.
 

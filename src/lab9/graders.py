@@ -126,6 +126,19 @@ class ReplyAmountMatchesLedger(Evaluator[Any, Trial]):
 
         return EvaluationReason(value=True, reason=None)
 
+@dataclass
+class ProposalAmountCorrect(Evaluator[Any, Trial]):
+    """So sánh số tiền đề xuất với nhãn."""
+
+    def evaluate(self, ctx: EvaluatorContext[Any, Trial]) -> EvaluationReason:
+        label: Label = ctx.expected_output or {}
+        actual = ctx.output["result"].get("proposal_amount")
+        expected = label.get("proposal_amount")
+
+        return EvaluationReason(
+            value=actual is not None and expected is not None and actual == expected,
+            reason=f"proposal={actual}, expected={expected}",
+        )
 
 # Order matters only for display. Names here are the metric ids in config/metric_spec.yaml.
 GRADERS: dict[str, type[Evaluator]] = {
@@ -135,4 +148,6 @@ GRADERS: dict[str, type[Evaluator]] = {
     "refund_amount_correct": RefundAmountCorrect,
     "db_fact_kept": DbFactKept,
     "reply_amount_matches_ledger": ReplyAmountMatchesLedger,
+    "proposal_amount_correct": ProposalAmountCorrect,
+
 }
