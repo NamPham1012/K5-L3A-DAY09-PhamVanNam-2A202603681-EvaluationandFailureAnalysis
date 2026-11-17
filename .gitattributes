@@ -1,0 +1,3 @@
+# Eval-set hashes are calculated from bytes; preserve the generated files across platforms.
+src/data/eval/eval_set_v1.jsonl -text
+src/data/eval/eval_set_v2.jsonl -text
